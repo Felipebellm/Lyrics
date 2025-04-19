@@ -60,4 +60,16 @@
             return ['pages'];
 
         }
+
+        public function loadController($controllerName)
+{
+            $controllerFile = 'app/controllers/' . ucfirst($controllerName) . '.php';
+            
+            if (file_exists($controllerFile)) {
+                require_once $controllerFile;
+                return true;
+            }
+            
+            return false;
+        }
     }
